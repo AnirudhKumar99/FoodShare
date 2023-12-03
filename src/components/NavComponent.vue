@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar">
       <div class="nav-left">
-        <router-link to="/home">
+        <router-link to="/">
           <div class="nav-button">
             <font-awesome-icon icon="home" class="nav-icon" />
           </div>

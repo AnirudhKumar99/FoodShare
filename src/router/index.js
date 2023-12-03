@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeComponent from '../components/HomeComponent.vue'
 import AuthComponent from '@/components/AuthComponent.vue'
+import NgoList from '@/components/NgoList'
+import InvitationComponent from '@/components/InvitationComponent.vue'
+import EventDetails from '@/components/EventDetails.vue'; 
 
 const routes = [
   {
@@ -12,6 +15,20 @@ const routes = [
     path: '/',
     name: 'auth',
     component: AuthComponent
+  },
+  {
+    path: '/view-ngos',
+    name: 'NgoList',
+    component: NgoList,
+  },{
+    path: '/invitations', // Set the path for invitations
+    name: 'Invitations',
+    component: InvitationComponent,
+  },{
+    path: '/event-details',
+    name: 'EventDetails',
+    component: EventDetails,
+    props: true
   },
   {
     path: '/about',

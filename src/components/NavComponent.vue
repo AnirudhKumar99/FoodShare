@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar">
       <div class="nav-left">
-        <router-link to="/">
+        <router-link to="/home">
           <div class="nav-button">
             <font-awesome-icon icon="home" class="nav-icon" />
           </div>
@@ -12,7 +12,8 @@
         <router-link to="/profile">
           <div class="profile-circle">
             <!-- You can customize the profile circle content (e.g., user initials, image, etc.) -->
-            <span>JD</span>
+            <!-- <span>US</span> -->
+            <font-awesome-icon icon="user"  class="nav-icon" />
           </div>
         </router-link>
       </div>
@@ -41,7 +42,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3%;
+    padding: 3vw;
     border-radius: 5vw;
     background-color: lightgreen; /* Adjust this color to match your theme */
     color: white;

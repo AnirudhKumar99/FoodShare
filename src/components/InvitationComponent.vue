@@ -4,7 +4,7 @@
   
       <div class="toggle-container">
         <label>
-          <input type="checkbox" v-model="showAccepted" /> Show Accepted Invitations
+          <input type="checkbox" v-model="showAccepted" /> Show Responded Invitations
         </label>
       </div>
   
@@ -28,11 +28,13 @@
       return {
         showAccepted: false,
         invitations: [
-          { id: 1,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", title: 'Invitation 1', description: 'Description 1', status: 'pending' },
-          { id: 2,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", title: 'Invitation 2', description: 'Description 2', status: 'accepted' },
-          { id: 3,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", title: 'Invitation 3', description: 'Description 2', status: 'pending' },
-          { id: 4,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", title: 'Invitation 4', description: 'Description 2', status: 'accepted' },
-          { id: 5,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", title: 'Invitation 5', description: 'Description 2', status: 'pending' },
+          { id: 1,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", date:'01/01/2024',time:'11:00AM', title: 'Invitation 1', description: 'Description 1', status: 'pending' },
+          { id: 2,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", date:'01/01/2024',time:'11:00AM',title: 'Invitation 2', description: 'Description 2', status: 'accepted' },
+          { id: 3,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", date:'01/01/2024',time:'11:00AM',title: 'Invitation 3', description: 'Description 2', status: 'pending' },
+          { id: 4,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", date:'01/01/2024',time:'11:00AM',title: 'Invitation 4', description: 'Description 2', status: 'accepted' },
+          { id: 5,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", date:'01/01/2024',time:'11:00AM',title: 'Invitation 5', description: 'Description 2', status: 'pending' },
+          { id: 6,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", date:'01/01/2024',time:'11:00AM',title: 'Invitation 6', description: 'Description 2', status: 'rejected' },
+          { id: 6,image:"https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png", date:'01/01/2024',time:'11:00AM',title: 'Invitation 7', description: 'Description 2', status: 'rejected' },
           // Add more invitations as needed
         ],
       };
@@ -40,7 +42,7 @@
     computed: {
       filteredInvitations() {
         return this.showAccepted
-          ? this.invitations.filter(invitation => invitation.status === 'accepted')
+          ? this.invitations.filter(invitation => invitation.status !== 'pending')
           : this.invitations.filter(invitation => invitation.status === 'pending');
       },
     },

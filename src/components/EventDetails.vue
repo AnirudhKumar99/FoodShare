@@ -1,41 +1,75 @@
 <template>
+    <NavComponent />
     <div class="event-details">
-        <img :src="invitation.image || placeholderImage" alt="Event Image" class="event-image" />
+        <img :src="invitaion.image || placeholderImage" alt="Event Image" class="event-image" />
         <div class="event-info">
-            <h2>{{ invitation.title }}</h2>
-            <p>{{ invitation.description }}</p>
-            <p><strong>Date:</strong> {{ invitation.date }}</p>
-            <p><strong>Time:</strong> {{ invitation.time }}</p>
-            <p><strong>Place:</strong> {{ invitation.place }}</p>
+            <h2>{{ invitaion.title }}</h2>
+            <p>{{ invitaion.description }}</p>
+            <p><strong>Date:</strong> {{ invitaion.date }}</p>
+            <p><strong>Time:</strong> {{ invitaion.time }}</p>
+            <p><strong>Place:</strong> {{ invitaion.place }}</p>
         </div>
-        <div class="event-actions">
+
+        <div v-if="invitaion.status === 'pending'" class="event-actions">
             <button @click="acceptEvent">Accept</button>
             <button @click="rejectEvent">Reject</button>
         </div>
+        <ModalComponent :message="modalMessage" :isVisible="visible"/>
     </div>
 </template>
   
 <script>
+import NavComponent from '@/components/NavComponent.vue'
+import ModalComponent from '@/components/ModalComponent.vue'
+
 export default {
-    props: {
-        invitation: {
-            type: Object,
-            required: true,
-        },
+    components: {
+        NavComponent, ModalComponent
     },
+    // props:['invitation'],
     data() {
-        console.log(this.invitation);
         return {
-            placeholderImage: 'url_to_placeholder_image.jpg', // Provide the URL to your placeholder image
+            invitaion: {},
+            placeholderImage: "", // Provide the URL to your placeholder image
             // invitation: this.$route.params.invite,
+            modalMessage: '',
+            visible:false
         };
+    },
+    mounted() {
+        console.log('here')
+        // this.invitaion = 
+        this.invitaion = JSON.parse(localStorage.getItem("invite"))
+        console.log(this.invitaion)
     },
     methods: {
         acceptEvent() {
-            // Add logic for accepting the event
+            this.modalMessage = 'Event Accepted! 🎉';
+            // this.visible=true;
+            // this.invitation.status = 'accepted';
+            // console.log(this.$refs)
+            // this.$refs.modal.isVisible = true;
+            // ModalComponent.isVisible=true;
+            // ModalComponent.isVisible=true;
+            // Additional logic or API calls can be added here
+            // ...
+            this.showPopup()
+            this.$router.push('/home')
         },
         rejectEvent() {
-            // Add logic for rejecting the event
+            this.modalMessage = 'Event Rejected! 😞';
+            // this.visible=true;
+            // this.$refs.modal.isVisible = true;
+            // console.log(ModalComponent)
+            // ModalComponent.isVisible=true;
+            // this.$refs.modal.isVisible=true;
+            // Additional logic or API calls can be added here
+            // ...
+            this.showPopup()
+            this.$router.push('/home')
+        },
+        showPopup() {
+            window.alert(this.modalMessage);
         },
     },
 };
@@ -48,6 +82,7 @@ export default {
     flex-direction: column;
     align-items: center;
     margin: 20px;
+    height: 50vh;
 }
 
 .event-image {

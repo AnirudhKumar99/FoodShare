@@ -1,4 +1,5 @@
 <template>
+    
     <div class="invitation-card" @click="viewEventDetails">
         <div class="invitation-content">
             <img :src="invitation.image || placeholderImage" alt="Invitation Image" class="invitation-image" />
@@ -8,7 +9,8 @@
             </div>
             <div class="invitation-status">
                 <span v-if="invitation.status === 'pending'" class="pending-status">Pending</span>
-                <span v-else class="accepted-status">Accepted</span>
+                <span v-else-if="invitation.status === 'accepted'" class="accepted-status">Accepted</span>
+                <span v-else class="rejected-status">Rejected</span>
             </div>
         </div>
     </div>
@@ -29,7 +31,9 @@ export default {
     }, methods: {
         viewEventDetails() {
             // console.log(this.invitation)
-            this.$router.push({ name: 'EventDetails', params: { invitation: this.invitation } });
+            localStorage.setItem("invite",JSON.stringify(this.invitation))
+            this.$router.push({ name: 'EventDetails' });
+            // this.$router.push({ name: 'EventDetails', params: { invitation: this.invitation } });
         },
     },
 };
@@ -93,6 +97,15 @@ export default {
 
 .accepted-status {
     background-color: #28a745;
+    /* Adjust color for accepted status */
+    color: white;
+    width: 2em;
+    height: 5em;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+.rejected-status {
+    background-color: #a72828;
     /* Adjust color for accepted status */
     color: white;
     width: 2em;

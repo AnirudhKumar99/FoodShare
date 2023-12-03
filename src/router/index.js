@@ -25,10 +25,10 @@ const routes = [
     name: 'Invitations',
     component: InvitationComponent,
   },{
-    path: '/event-details',
+    path: '/event-details/',
     name: 'EventDetails',
     component: EventDetails,
-    props: true
+    // props: true
   },
   {
     path: '/about',

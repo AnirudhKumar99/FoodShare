@@ -5,7 +5,15 @@
       <h2>Upcoming Events</h2>
       <div v-if="events.length === 0">No upcoming events</div>
       <div v-else>
-        <EventCard v-for="event in events" :key="event.id" :event="event" />
+        <!-- <EventCard v-for="event in events" :key="event.id" :event="event" /> -->
+        <router-link
+        v-for="event in events"
+        :key="event.id"
+        :to="{ name: 'EventDescription', params: {event:JSON.stringify(event) }}"
+        >
+        <!-- :to="{ name: 'EventDescription', params: { eventId: event.id } }" -->
+        <EventCard :event="event" />
+      </router-link>
       </div>
       <router-link to="/add-event" class="add-event-button">
       <span class="plus-icon">+</span>

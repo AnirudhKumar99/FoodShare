@@ -6,6 +6,7 @@ import InvitationComponent from '@/components/InvitationComponent.vue'
 import EventDetails from '@/components/EventDetails.vue'; 
 import AddEventPage from '@/components/AddEventPage.vue'; 
 import UpcomingEvents from '@/components/UpcomingEvents.vue';
+import EventDescription from '@/components/EventDescription.vue'
 
 const routes = [
   {
@@ -42,6 +43,24 @@ const routes = [
     name: 'UpcomingEvents',
     component: UpcomingEvents,
   },
+  {
+    path: '/event-description/:event/',
+    name: 'EventDescription',
+    component: EventDescription,
+    props: true,
+  },
+  // {
+  //   path: '/add-ngo/:eventId',
+  //   name: 'AddNGO',
+  //   component: AddNGO,
+  //   props: true,
+  // },
+  // {
+  //   path: '/add-invitee/:eventId',
+  //   name: 'AddInvitee',
+  //   component: AddInvitee,
+  //   props: true,
+  // },
   {
     path: '/about',
     name: 'about',

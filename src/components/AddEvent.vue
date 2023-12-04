@@ -18,7 +18,7 @@
         <!-- <label for="place">Place:</label> -->
         <input type="text" id="place" placeholder="Location" v-model="event.place" required />
   
-        <button type="submit">Add Event</button>
+        <button @click="submitEvent" type="submit">Add Event</button>
       </form>
     </div>
   </template>
@@ -42,19 +42,8 @@
     },
     methods: {
       submitEvent() {
-        // Validate the form fields if needed
-  
-        // Emit an event to the parent component with the event details
-        this.$emit('add-event', { ...this.event });
-  
-        // Clear the form fields
-        this.event = {
-          title: '',
-          description: '',
-          date: '',
-          time: '',
-          place: '',
-        };
+        alert ("Event added successfully");
+        this.$router.push("/home")
       },
     },
   };

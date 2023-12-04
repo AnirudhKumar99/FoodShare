@@ -1,22 +1,71 @@
 <!-- EventDescription.vue -->
 <template>
-    <NavComponent/>
+    <NavComponent />
     <div class="event-description">
         <h2>{{ eventData.title }}</h2>
-        <img :src="eventData.image" alt="Event Image" />
+        <img :src="eventData.image" alt="Event Image" width="200" height="200" />
         <!-- ... other details ... -->
         <p>{{ eventData.description }}</p>
-        <p><strong>Date:</strong> {{ eventData.date }}</p>
-        <p><strong>Time:</strong> {{ eventData.time }}</p>
-        <p><strong>Place:</strong> {{ eventData.place }}</p>
+        <table style="margin-left: 4%; text-align: left;">
+            <tr>
+                <td>
+                    <p><strong>Date:</strong></p>
+                </td>
+                <td>
+                    <p> {{ eventData.date }}</p>
+                </td>
+            </tr><tr>
+                <td>
+                    <p><strong>Time:</strong></p>
+                </td>
+                <td>
+                    <p> {{ eventData.time }}</p>
+                </td>
+            </tr><tr>
+                <td>
+                    <p><strong>Place:</strong></p>
+                </td>
+                <td>
+                    <p> {{ eventData.place }}</p>
+                </td>
+            </tr>
+
+        </table>
+        <!-- <p><strong>Time:</strong> {{ eventData.time }}</p>
+        <p><strong>Place:</strong> {{ eventData.place }}</p> -->
 
         <h3>Dashboard</h3>
-        <p> No of Invitations Sent: 30</p>
+        <table style="margin-left: 4%; text-align: left;">
+            <tr>
+                <td>
+                    <p> No of Invitations Sent: </p>
+                </td>
+                <td>
+                    <p> 40</p>
+                </td>
+            </tr><tr>
+                <td>
+                    <p> No of Responses: 30</p>
+                </td>
+                <td>
+                    <p> 10</p>
+                </td>
+            </tr><tr>
+                <td>
+                    <p> Expected No of People: 30</p>
+                </td>
+                <td>
+                    <p> 30</p>
+                </td>
+            </tr>
+
+        </table>
+        <!-- <p> No of Invitations Sent: 30</p>
         <p> No of Responses: 30</p>
-        <p> Expected No of People: 30</p>
+        <p> Expected No of People: 30</p> -->
         <div class="buttons">
-            <button @click="openNGOList">Add NGO</button>
-            <button @click="openUserList">Add Invitees</button>
+            <button style="background-color: aquamarine; height: 2.5em; border-radius: 5px;" @click="openNGOList">Add NGO</button>
+            <button style="background-color: aquamarine; height: 2.5em; border-radius: 5px;" @click="openUserList">Add Invitees</button>
             <!-- <router-link :to="{ name: 'AddInvitee', params: { eventId: event.id } }" class="add-invitee-button">
           Add Invitee
         </router-link> -->
@@ -79,7 +128,7 @@ export default {
         };
     },
     components: {
-        NGOListPop, InviteeList,NavComponent
+        NGOListPop, InviteeList, NavComponent
     },
     mounted() {
         // console.log(this.event)
@@ -192,10 +241,15 @@ export default {
     width: 50%;
     /* Make the button full width */
 }
-
+.buttons{
+    width: 60%;
+    margin-left: 20%;
+    display: flex;flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+}
 .send-button:hover {
     background-color: #0056b3;
 }
-
 </style>
   

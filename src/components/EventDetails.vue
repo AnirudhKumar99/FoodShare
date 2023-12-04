@@ -1,7 +1,7 @@
 <template>
     <NavComponent />
     <div class="event-details">
-        <img :src="invitaion.image || placeholderImage" alt="Event Image" class="event-image" />
+        <img :src="invitaion.image || placeholderImage" alt="Event Image" class="event-image" width="300" height="300" />
         <div class="event-info">
             <h2>{{ invitaion.title }}</h2>
             <p>{{ invitaion.description }}</p>

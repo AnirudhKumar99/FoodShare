@@ -4,9 +4,22 @@
         <img :src="ngo.image || placeholderImage" alt="NGO Image" class="ngo-image" />
         <div class="ngo-details">
           <h3>{{ ngo.name }}</h3>
-          <p>{{ ngo.description }}</p>
-          <p><strong>Email:</strong> {{ ngo.email }}</p>
-          <p><strong>Phone:</strong> {{ ngo.phone }}</p>
+          <table style="margin-left: 4%; text-align: left;">
+            <tr>
+                <td>
+                  <p>{{ ngo.description }}</p>
+                </td>
+            </tr><tr>
+                <td>
+                  <p><strong>Email:</strong> {{ ngo.email }}</p>
+                </td>
+            </tr><tr>
+                <td>
+                  <p><strong>Phone:</strong> {{ ngo.phone }}</p>
+                </td>
+            </tr>
+        </table>
+        <button @click="openChatHistory(ngo.name)" class="view-chat-history-button"> Chat</button>
         </div>
       </div>
     </div>
@@ -25,6 +38,11 @@
         placeholderImage: 'url_to_placeholder_image.jpg', // Provide the URL to your placeholder image
       };
     },
+    methods:{
+      openChatHistory(ngoName) {
+      this.$router.push({ name: 'ChatHistoryPage', params: { ngoName } });
+    },
+    }
   };
   </script>
   
@@ -68,5 +86,13 @@
   .ngo-details p strong {
     margin-right: 5px;
   }
+  .view-chat-history-button {
+  padding: 10px;
+  background-color: #00ffb7;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
   </style>
   

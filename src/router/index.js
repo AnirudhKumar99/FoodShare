@@ -4,6 +4,8 @@ import AuthComponent from '@/components/AuthComponent.vue'
 import NgoList from '@/components/NgoList'
 import InvitationComponent from '@/components/InvitationComponent.vue'
 import EventDetails from '@/components/EventDetails.vue'; 
+import AddEventPage from '@/components/AddEventPage.vue'; 
+import UpcomingEvents from '@/components/UpcomingEvents.vue';
 
 const routes = [
   {
@@ -29,6 +31,16 @@ const routes = [
     name: 'EventDetails',
     component: EventDetails,
     // props: true
+  },
+  {
+    path: '/add-event',
+    name: 'AddEventPage',
+    component: AddEventPage,
+  },
+  {
+    path: '/upcoming-events',
+    name: 'UpcomingEvents',
+    component: UpcomingEvents,
   },
   {
     path: '/about',

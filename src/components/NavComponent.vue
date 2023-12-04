@@ -7,7 +7,7 @@
           </div>
         </router-link>
       </div>
-  
+      <div> <h3 style="color: black;">FOOD SHARE</h3></div>
       <div class="nav-right">
         <router-link to="/profile">
           <div class="profile-circle">

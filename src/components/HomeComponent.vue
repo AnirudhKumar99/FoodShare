@@ -5,23 +5,32 @@
     <router-link to="/view-ngos"
       ><button class="action-button">View NGOs</button></router-link
     >
-    <router-link to="/add-events"
-      ><button class="action-button">Add Events</button></router-link
+    <router-link to="/upcoming-events"
+      ><button class="action-button">Events</button></router-link
     >
     <router-link to="/invitations"
       ><button class="action-button">Invitations</button></router-link
     >
+    <!-- <AddEvent @add-event="handleAddEvent" /> -->
   </div>
 </template>
 
 <script>
 import NavComponent from "@/components/NavComponent.vue";
+// import AddEvent from '@/components/AddEvent.vue'; // Adjust the path based on your project structure
 
 export default {
   name: "HomeComponent",
-  components:{
+  methods: {
+    handleAddEvent(newEvent) {
+      // Handle the new event data, for example, add it to a list of events
+      console.log('New Event:', newEvent);
+    },
+  },
+  components: {
+    // AddEvent,
     NavComponent
-  }
+  },
 };
 </script>
 <style scoped>

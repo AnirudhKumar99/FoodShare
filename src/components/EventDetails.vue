@@ -14,6 +14,11 @@
             <button @click="acceptEvent">Accept</button>
             <button @click="rejectEvent">Reject</button>
         </div>
+        <div v-else class="event-actions">
+            
+            <button v-if="invitaion.status==='accepted'">Accepted</button>
+            <button style="background-color: #dc3545;" v-else>Rejected</button>
+        </div>
         <ModalComponent :message="modalMessage" :isVisible="visible"/>
     </div>
 </template>

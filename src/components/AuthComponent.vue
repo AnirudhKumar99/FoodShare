@@ -1,9 +1,7 @@
 <template>
     <div class="auth-container">
-      <div class="gradient-background">
-        <!-- Your gradient background styles go here -->
-      </div>
-  
+      
+      <img src="../assets/icon.png" style="margin-top: 20%;" width="200" height="200">
       <div class="auth-form">
         <h2>Food Share</h2>
   
@@ -38,40 +36,43 @@
   </template>
   
   <script>
+// import { faImage } from '@fortawesome/free-solid-svg-icons';
+
   export default {
     name: 'AuthComponent',
     data() {
-      return {
-        isRegister: false,
-        loginEmail: '',
-        loginPassword: '',
-        name: '',
-        registerEmail: '',
-        registerPassword: '',
-        userType: 'user', // Default to 'user'
-      };
+        return {
+            isRegister: false,
+            loginEmail: '',
+            loginPassword: '',
+            name: '',
+            registerEmail: '',
+            registerPassword: '',
+            userType: 'user', // Default to 'user'
+        };
     },
     methods: {
         login() {
-      // Add your login logic here
-      console.log('Logging in with email:', this.loginEmail, 'and password:', this.loginPassword);
-      // Redirect to home page after successful login
-      this.$router.push('/home');
+            // Add your login logic here
+            console.log('Logging in with email:', this.loginEmail, 'and password:', this.loginPassword);
+            // Redirect to home page after successful login
+            this.$router.push('/home');
+        },
+        register() {
+            // Add your registration logic here
+            console.log('Registering with name:', this.name, 'email:', this.registerEmail, 'password:', this.registerPassword, 'userType:', this.userType);
+            // Redirect to home page after successful registration
+            this.$router.push('/home');
+        },
+        setUserType(type) {
+            this.userType = type;
+        },
+        toggleFormType(type) {
+            this.isRegister = type === 'register';
+        },
     },
-    register() {
-      // Add your registration logic here
-      console.log('Registering with name:', this.name, 'email:', this.registerEmail, 'password:', this.registerPassword, 'userType:', this.userType);
-      // Redirect to home page after successful registration
-      this.$router.push('/home');
-    },
-    setUserType(type) {
-      this.userType = type;
-    },
-    toggleFormType(type) {
-      this.isRegister = type === 'register';
-    },
-    },
-  };
+    // components: { faImage }
+};
   </script>
   
   <style scoped>
@@ -85,7 +86,7 @@
     padding: 20px;
     border-radius: 10px;
     background: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
   }
   h2 {
     color: #333;
@@ -129,6 +130,9 @@
   }
   
   /* Active style for buttons */
+  button{
+    border-radius: 10px;
+  }
   button.active {
     background-color: #4caf50;
     color: white;

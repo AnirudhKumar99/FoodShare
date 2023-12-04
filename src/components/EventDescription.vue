@@ -1,5 +1,6 @@
 <!-- EventDescription.vue -->
 <template>
+    <NavComponent/>
     <div class="event-description">
         <h2>{{ eventData.title }}</h2>
         <img :src="eventData.image" alt="Event Image" />
@@ -8,6 +9,11 @@
         <p><strong>Date:</strong> {{ eventData.date }}</p>
         <p><strong>Time:</strong> {{ eventData.time }}</p>
         <p><strong>Place:</strong> {{ eventData.place }}</p>
+
+        <h3>Dashboard</h3>
+        <p> No of Invitations Sent: 30</p>
+        <p> No of Responses: 30</p>
+        <p> Expected No of People: 30</p>
         <div class="buttons">
             <button @click="openNGOList">Add NGO</button>
             <button @click="openUserList">Add Invitees</button>
@@ -55,6 +61,7 @@
 <script>
 import NGOListPop from '@/components/NGOListPop.vue'; // Import the NGOList component
 import InviteeList from '@/components/UserList.vue'
+import NavComponent from '@/components/NavComponent.vue'
 export default {
     props: {
         event: {
@@ -72,7 +79,7 @@ export default {
         };
     },
     components: {
-        NGOListPop, InviteeList
+        NGOListPop, InviteeList,NavComponent
     },
     mounted() {
         // console.log(this.event)
@@ -130,6 +137,7 @@ export default {
 /* Add styles for the EventDescription component as needed */
 .event-description {
     /* ... existing styles ... */
+    text-align: center;
 }
 
 .modal {
@@ -188,5 +196,6 @@ export default {
 .send-button:hover {
     background-color: #0056b3;
 }
+
 </style>
   

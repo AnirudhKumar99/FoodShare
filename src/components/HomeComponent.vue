@@ -10,6 +10,8 @@
     >
     <router-link to="/invitations"
       ><button class="action-button">Invitations</button></router-link
+    ><router-link to="/chats"
+      ><button class="action-button">Chats</button></router-link
     >
     <!-- <AddEvent @add-event="handleAddEvent" /> -->
   </div>

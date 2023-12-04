@@ -7,6 +7,8 @@ import EventDetails from '@/components/EventDetails.vue';
 import AddEventPage from '@/components/AddEventPage.vue'; 
 import UpcomingEvents from '@/components/UpcomingEvents.vue';
 import EventDescription from '@/components/EventDescription.vue'
+import ChatPage from '@/components/ChatPage.vue'
+import ChatHistoryPage from '@/components/ChatHistoryPage.vue'
 
 const routes = [
   {
@@ -48,6 +50,16 @@ const routes = [
     name: 'EventDescription',
     component: EventDescription,
     props: true,
+  },
+  {
+    path: '/chats',
+    name: 'Chats',
+    component: ChatPage,
+  },
+  {
+    path: '/chats/history/:ngoName',
+    name: 'ChatHistoryPage',
+    component: ChatHistoryPage,
   },
   // {
   //   path: '/add-ngo/:eventId',
